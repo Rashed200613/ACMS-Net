@@ -1,0 +1,15 @@
+                                                precision    recall  f1-score   support
+
+                                   1Gallstones     0.9925    1.0000    0.9963       133
+                  2Abdomen and retroperitoneum     1.0000    1.0000    1.0000       117
+                                3cholecystitis     1.0000    1.0000    1.0000       115
+      4Membranous and gangrenous cholecystitis     1.0000    1.0000    1.0000       123
+                                  5Perforation     1.0000    1.0000    1.0000       107
+              6Polyps and cholesterol crystals     1.0000    1.0000    1.0000       102
+                              7Adenomyomatosis     1.0000    1.0000    1.0000       117
+                                    8Carcinoma     1.0000    1.0000    1.0000       159
+9Various causes of gallbladder wall thickening     1.0000    0.9899    0.9949        99
+
+                                      accuracy                         0.9991      1072
+                                     macro avg     0.9992    0.9989    0.9990      1072
+                                  weighted avg     0.9991    0.9991    0.9991      1072

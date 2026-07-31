@@ -1,0 +1,2 @@
+total_parameters,trainable_parameters,non_trainable_parameters,flops,avg_inference_time_sec,fps,performance_parameter_ratio,performance_flops_ratio
+854379,854379,0,1045645484.0,0.0037088608741760254,269.6245650417296,1.1693489238137927e-06,9.55454960085788e-10

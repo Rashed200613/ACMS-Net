@@ -1,0 +1,10 @@
+class,precision,recall,f1_score,support
+1Gallstones,0.9925373134328358,1.0,0.9962546816479401,133.0
+2Abdomen and retroperitoneum,1.0,1.0,1.0,117.0
+3cholecystitis,1.0,1.0,1.0,115.0
+4Membranous and gangrenous cholecystitis,1.0,1.0,1.0,123.0
+5Perforation,1.0,1.0,1.0,107.0
+6Polyps and cholesterol crystals,1.0,1.0,1.0,102.0
+7Adenomyomatosis,1.0,1.0,1.0,117.0
+8Carcinoma,1.0,1.0,1.0,159.0
+9Various causes of gallbladder wall thickening,1.0,0.98989898989899,0.9949238578680203,99.0

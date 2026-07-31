@@ -1,0 +1,10 @@
+class,AUPRC
+1Gallstones,1.0
+2Abdomen and retroperitoneum,0.9999999999999999
+3cholecystitis,0.9999999999999999
+4Membranous and gangrenous cholecystitis,1.0
+5Perforation,1.0
+6Polyps and cholesterol crystals,1.0
+7Adenomyomatosis,1.0
+8Carcinoma,1.0
+9Various causes of gallbladder wall thickening,1.0

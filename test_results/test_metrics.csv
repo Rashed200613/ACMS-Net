@@ -1,0 +1,2 @@
+test_loss,accuracy,precision,recall,specificity,balanced_accuracy,f1_score,kappa,mcc,roc_auc
+0.00809187,0.999067164,0.999074126,0.999067164,0.999881671,0.998877666,0.999266543,0.998947776,0.998948757,1

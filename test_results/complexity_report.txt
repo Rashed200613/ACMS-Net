@@ -1,0 +1,11 @@
+MODEL COMPLEXITY ANALYSIS
+============================================================
+
+total_parameters: 854379.0
+trainable_parameters: 854379.0
+non_trainable_parameters: 0.0
+flops: 1045645484.0
+avg_inference_time_sec: 0.0037088608741760254
+fps: 269.6245650417296
+performance_parameter_ratio: 1.1693489238137927e-06
+performance_flops_ratio: 9.55454960085788e-10
