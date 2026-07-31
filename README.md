@@ -6,12 +6,6 @@
 
 Official PyTorch implementation of **ACMS-Net**, a lightweight Adaptive Cross-Scale Multi-Scale Attention Network for multi-class gallbladder (GB) disease classification from ultrasound (US) images.
 
-**Authors:** Md. Rashed, Faisal Iqbal Hiron
-**Affiliation:** Department of Information and Communication Engineering, Pabna University of Science and Technology, Pabna, 6600, Bangladesh
-**Corresponding author:** Faisal Iqbal Hiron (faisal.hiron2603@gmail.com)
-
----
-
 ## Overview
 
 Gallbladder disease encompasses a wide range of conditions, including gallstones, cholecystitis, adenomyomatosis, and carcinoma. Many of these look similar on ultrasound, especially when wall thickening is present, making multi-class diagnosis a genuinely hard problem. Recent deep learning models have pushed accuracy above 98% on this task, but most depend on large backbones, capsule-routing designs, or transformers that are too heavy for low-resource clinical settings where ultrasound is often the only imaging option available.
