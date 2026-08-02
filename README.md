@@ -1,10 +1,13 @@
-# ACMS-Net: A Lightweight Adaptive Multi-Scale Feature Learning with Cross-Scale Attention Network for Multi-Class Classification of Gallbladder Diseases in Ultrasound Images
+# ACMS-Net: A Lightweight Adaptive Multi-Scale Feature Learning with Cross-Scale Attention Network for Multi-Class Classification of Gallbladder Disease in Ultrasound Images
 
 [![Paper](https://img.shields.io/badge/Paper-Preprint-blue)]()
 [![Dataset](https://img.shields.io/badge/Dataset-Mendeley-orange)](https://data.mendeley.com/datasets/r6h24d2d3y/1)
 [![License](https://img.shields.io/badge/License-MIT-green)](#license)
 
 Official PyTorch implementation of **ACMS-Net**, a lightweight Adaptive Cross-Scale Multi-Scale Attention Network for multi-class gallbladder (GB) disease classification from ultrasound (US) images.
+
+**Authors:** Md. Rashed, Faisal Iqbal Hiron
+Department of Information and Communication Engineering, Pabna University of Science and Technology, Pabna, 6600, Bangladesh
 
 ## Overview
 
@@ -18,7 +21,7 @@ To close this gap, we propose **ACMS-Net**, which combines:
 
 all within a compact residual design.
 
-On the **UIdataGB** dataset (10,692 images across nine disease classes), ACMS-Net reaches **99.91% accuracy**, **99.98% specificity**, and an **MCC of 99.89%**, matching or beating seventeen existing methods while using only **0.85M parameters**, **1.05 GFLOPs**, and **3.71 ms** inference time per image (**269.62 FPS**) — up to two orders of magnitude smaller than comparable transfer-learning and transformer-based models. Grad-CAM, attention-map, and t-SNE analysis further show that the model focuses on clinically meaningful regions rather than background noise, giving it built-in interpretability that most high-accuracy baselines lack.
+On the **UIdataGB** dataset (10,692 images across nine disease classes), ACMS-Net reaches **99.91% accuracy**, **99.98% specificity**, and an **MCC of 99.89%**, matching or beating seventeen existing methods while using only **0.85M parameters**, **1.05 GFLOPs**, and **3.71 ms** inference time per image (**269.62 FPS**) — up to two orders of magnitude smaller than comparable transfer-learning and transformer-based models. Five-fold cross-validation confirms this performance is stable across data splits, and Grad-CAM, attention-map, and t-SNE analysis further show that the model focuses on clinically meaningful regions rather than background noise, giving it built-in interpretability that most high-accuracy baselines lack.
 
 ## Architecture
 
@@ -60,11 +63,12 @@ This study uses **UIdataGB**, a publicly available multi-class ultrasound datase
 | Method | Accuracy | Precision | Recall | Specificity | F1-score | MCC |
 |---|---|---|---|---|---|---|
 | GBCapsNet (Golla et al., 2026) | 99.91% | 100% | 100% | – | 100.00% | – |
-| EfficientViT (Elbedwehy et al., 2026) | 99.86% | 99.67% | 99.78% | – | 99.78% | – |
+| EfficientViT–AlexNet (Elbedwehy et al., 2026) | 99.86% | 99.67% | 99.78% | – | 99.78% | – |
 | MSFE-GallNet-X (Nabil et al., 2025) | 99.63% | 99.60% | 99.40% | – | 99.50% | – |
+| SE-CapsNet (Jayanthi et al., 2026) | 99.09% | 95.83% | 95.87% | 99.49% | 95.84% | – |
 | **ACMS-Net (Proposed)** | **99.91%** | 99.91% | 99.91% | **99.98%** | 99.92% | **99.89%** |
 
-*Full comparison against seventeen existing methods is provided in the paper.*
+*Full comparison against seventeen existing methods is provided in the paper (Table 6).*
 
 ### Computational Efficiency
 
@@ -72,20 +76,35 @@ This study uses **UIdataGB**, a publicly available multi-class ultrasound datase
 |---|---|---|---|---|---|
 | EfficientViT–AlexNet (Elbedwehy et al., 2026) | 318.16 | – | – | – | 99.86% |
 | VGG-19 | 74.47 | 536 | – | – | 98.89% |
+| MSFE-GallNet-X (Nabil et al., 2025) | 1.91 | 379 | – | 2.64 | 99.63% |
 | GallNet-X (without MSFE) | 0.87 | 223 | – | – | 96.68% |
+| ACMS-Net (with Transition Block) | 1.06 | 3.93 | 1.17 G | 254.46 | 99.91% |
 | **ACMS-Net (Proposed)** | **0.85** | **3.71** | **1.05 G** | **269.62** | **99.91%** |
+
+### Five-Fold Cross-Validation
+
+Mean ± SD across five folds on UIdataGB:
+
+| Metric | Mean ± SD |
+|---|---|
+| Accuracy | 99.81% ± 0.09 |
+| Precision | 99.81% ± 0.09 |
+| Recall | 99.81% ± 0.09 |
+| F1-score | 99.81% ± 0.09 |
+| Specificity | 99.93% ± 0.06 |
+| MCC | 99.78 ± 0.10 |
 
 ### Ablation Study
 
-| Configuration | Accuracy (%) |
-|---|:---:|
-| Lightweight backbone only | 97.84 |
-| Backbone + Multi-Scale Feature Extraction (MSFE) | 98.76 |
-| Backbone + CSIM only | 98.42 |
-| Backbone + Adaptive Scale Attention only | 98.21 |
-| Backbone + SE only | 98.08 |
-| Backbone + CSIM + Adaptive Scale Attention | 99.34 |
-| **ACMS-Net (full model)** | **99.91** |
+| Configuration | Accuracy (%) | MCC |
+|---|:---:|:---:|
+| Lightweight backbone only | 90.84 | 0.878 |
+| Backbone + Multi-Scale Feature Extraction (MSFE) | 97.76 | 0.970 |
+| Backbone + CSIM only | 98.42 | 0.978 |
+| Backbone + Adaptive Scale Attention only | 96.21 | 0.950 |
+| Backbone + SE only | 98.08 | 0.975 |
+| Backbone + CSIM + Adaptive Scale Attention | 98.54 | 0.981 |
+| **ACMS-Net (full model)** | **99.91** | **0.999** |
 
 ## Repository Structure
 
@@ -163,7 +182,7 @@ If you use this code or dataset in your research, please cite:
 
 ```bibtex
 @article{rashed2026acmsnet,
-  title   = {ACMS-Net: A Lightweight Adaptive Multi-Scale Feature Learning with Cross-Scale Attention Network for Multi-Class Classification of Gallbladder Diseases in Ultrasound Images},
+  title   = {ACMS-Net: A Lightweight Adaptive Multi-Scale Feature Learning with Cross-Scale Attention Network for Multi-Class Classification of Gallbladder Disease in Ultrasound Images},
   author  = {Rashed, Md. and Hiron, Faisal Iqbal},
   journal = {Preprint submitted to Elsevier},
   year    = {2026}
@@ -199,3 +218,4 @@ This project is released under the MIT License. See the [LICENSE](LICENSE) file 
 
 For questions regarding this work, please contact:
 - Md. Rashed — rashedulislam.ice.pust@gmail.com
+- Faisal Iqbal Hiron — faisal.hiron2603@gmail.com
